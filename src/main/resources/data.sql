@@ -1,4 +1,10 @@
-INSERT INTO institutions (description, name) VALUES ('Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.', 'Fundacja "Dla dzieci"');
-INSERT INTO institutions (description, name) VALUES ('desc2', 'Fundacja 2"');
-INSERT INTO institutions (description, name) VALUES ('desc3', 'Fundacja 3"');
-INSERT INTO institutions (description, name) VALUES ('desc4', 'Fundacja 34');
+INSERT INTO institutions (description, name) VALUES ('desc1', 'Fundacja 1');
+INSERT INTO institutions (description, name) VALUES ('desc2', 'Fundacja 2');
+INSERT INTO institutions (description, name) VALUES ('desc3', 'Fundacja 3');
+INSERT INTO institutions (description, name) VALUES ('desc4', 'Fundacja 4');
+INSERT INTO institutions (description, name) VALUES ('desc5', 'Fundacja 5');
+INSERT INTO institutions (description, name) VALUES ('desc6', 'Fundacja 6');
+
+INSERT INTO donations (city, pick_up_comment, quantity, street, zip_code, institution_id) VALUES ('Kielce', 'comm1', '9', 'ulica0', '55-000', '1');
+INSERT INTO donations (city, pick_up_comment, quantity, street, zip_code, institution_id) VALUES ('Kielce1', 'comm1', '1', 'ulica1', '55-000', '2');
+INSERT INTO donations (city, pick_up_comment, quantity, street, zip_code, institution_id) VALUES ('Kielce2', 'comm1', '120', 'ulica2', '55-03300', '2');

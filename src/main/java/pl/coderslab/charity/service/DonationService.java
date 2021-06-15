@@ -18,4 +18,12 @@ public class DonationService {
     public List<Donation> getAll() {
         return donationRepository.findAll();
     }
+
+    public Integer sumBags() {
+        return donationRepository.sumBags();
+    }
+
+    public Integer sumDotations() {
+        return donationRepository.sumDonations();
+    }
 }
