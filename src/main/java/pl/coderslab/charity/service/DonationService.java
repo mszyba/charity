@@ -22,4 +22,8 @@ public class DonationService {
     public Integer sumBags() {
         return donationRepository.sumBags();
     }
+
+    public Integer sumDotations() {
+        return donationRepository.sumDonations();
+    }
 }

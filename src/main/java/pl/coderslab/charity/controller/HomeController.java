@@ -31,6 +31,11 @@ public class HomeController {
         return donationService.sumBags() == null ? 0 : donationService.sumBags();
     }
 
+    @ModelAttribute("sumDonations")
+    public Integer sumDonations() {
+        return donationService.sumDotations() == null ? 0 : donationService.sumDotations();
+    }
+
     @RequestMapping("/")
     public String homeAction(Model model) {
         return "index";
