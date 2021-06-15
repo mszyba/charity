@@ -28,11 +28,7 @@ public class HomeController {
 
     @ModelAttribute("sumBags")
     public Integer sumBags() {
-        if (donationService.sumBags() == null) {
-            return 0;
-        } else {
-            return donationService.sumBags();
-        }
+        return donationService.sumBags() == null ? 0 : donationService.sumBags();
     }
 
     @RequestMapping("/")
