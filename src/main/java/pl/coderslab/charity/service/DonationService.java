@@ -23,7 +23,7 @@ public class DonationService {
         return donationRepository.sumBags();
     }
 
-    public Integer sumDotations() {
+    public Integer sumDonations() {
         return donationRepository.sumDonations();
     }
 

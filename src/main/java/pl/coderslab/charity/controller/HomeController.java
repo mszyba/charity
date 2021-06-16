@@ -33,7 +33,7 @@ public class HomeController {
 
     @ModelAttribute("sumDonations")
     public Integer sumDonations() {
-        return donationService.sumDotations() == null ? 0 : donationService.sumDotations();
+        return donationService.sumDonations() == null ? 0 : donationService.sumDonations();
     }
 
     @RequestMapping("/")
