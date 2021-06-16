@@ -8,3 +8,10 @@ INSERT INTO institutions (description, name) VALUES ('desc6', 'Fundacja 6');
 INSERT INTO donations (city, pick_up_comment, quantity, street, zip_code, institution_id) VALUES ('Kielce', 'comm1', '9', 'ulica0', '55-000', '1');
 INSERT INTO donations (city, pick_up_comment, quantity, street, zip_code, institution_id) VALUES ('Kielce1', 'comm1', '1', 'ulica1', '55-000', '2');
 INSERT INTO donations (city, pick_up_comment, quantity, street, zip_code, institution_id) VALUES ('Kielce2', 'comm1', '120', 'ulica2', '55-03300', '2');
+
+INSERT INTO categories (name) VALUES ('ubrania, które nadają się do ponownego użycia');
+INSERT INTO categories (name) VALUES ('ubrania, do wyrzucenia');
+INSERT INTO categories (name) VALUES ('zabawki');
+INSERT INTO categories (name) VALUES ('książki');
+INSERT INTO categories (name) VALUES ('inne');
+INSERT INTO categories (name) VALUES ('inne2');
