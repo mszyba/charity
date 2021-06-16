@@ -20,7 +20,7 @@ public class Donation {
 
     private Integer quantity;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Category> categories;
 
     @ManyToOne

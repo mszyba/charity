@@ -29,20 +29,18 @@
       <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form th:action="@{/form}" method="post">
+        <form method="post" th:action="@{/form}" th:object="${donation}">
           <!-- STEP 1: class .active is switching steps -->
           <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>
-
-            <th:block th:each="c : ${categories}">
-              <div class="form-group form-group--checkbox">
+\
+              <div class="form-group form-group--checkbox" th:each="c : ${categories}">
                 <label>
-                  <input type="checkbox" name="categories" th:value="${c.id}" />
+                  <input type="checkbox" th:value="${c.id}" th:attr="name='categorieId'" />
                   <span class="checkbox"></span>
                   <span class="description" th:text="${c.name}"></span>
                 </label>
               </div>
-            </th:block>
 
             <div class="form-group form-group--buttons">
               <button type="button" class="btn next-step">Dalej</button>
@@ -56,7 +54,7 @@
             <div class="form-group form-group--inline">
               <label>
                 Liczba 60l worków:
-                <input type="number" name="bags" step="1" min="1" />
+                <input type="number" th:field="*{quantity}" name="bags" step="1" min="1" />
               </label>
             </div>
 
@@ -68,9 +66,26 @@
 
 
 
-          <!-- STEP 4 -->
+          <!-- STEP 3 -->
           <div data-step="3">
             <h3>Wybierz organizacje, której chcesz pomóc:</h3>
+
+            <th:block th:each="institution : ${institutions}">
+              <div class="form-group form-group--checkbox">
+                <label>
+                  <input type="radio" th:value="${institution.id}" name="organization" />
+                  <span class="checkbox radio"></span>
+                  <span class="description">
+                  <div class="title" th:text="${institution.name}">Fundacja “Bez domu”</div>
+                  <div class="subtitle" th:text="${institution.description}">
+                    Cel i misja: Pomoc dla osób nie posiadających miejsca
+                    zamieszkania
+                  </div>
+                </span>
+                </label>
+              </div>
+            </th:block>
+
 
             <div class="form-group form-group--checkbox">
               <label>
