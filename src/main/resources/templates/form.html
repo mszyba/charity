@@ -70,50 +70,18 @@
           <div data-step="3">
             <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
-            <th:block th:each="institution : ${institutions}">
-              <div class="form-group form-group--checkbox">
+              <div class="form-group form-group--checkbox" th:each="institution : ${institutions}">
                 <label>
                   <input type="radio" th:value="${institution.id}" name="organization" />
                   <span class="checkbox radio"></span>
                   <span class="description">
                   <div class="title" th:text="${institution.name}">Fundacja “Bez domu”</div>
                   <div class="subtitle" th:text="${institution.description}">
-                    Cel i misja: Pomoc dla osób nie posiadających miejsca
-                    zamieszkania
+
                   </div>
                 </span>
                 </label>
               </div>
-            </th:block>
-
-
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input type="radio" name="organization" value="old" />
-                <span class="checkbox radio"></span>
-                <span class="description">
-                  <div class="title">Fundacja “Bez domu”</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc dla osób nie posiadających miejsca
-                    zamieszkania
-                  </div>
-                </span>
-              </label>
-            </div>
-
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input type="radio" name="organization" value="old" />
-                <span class="checkbox radio"></span>
-                <span class="description">
-                  <div class="title">Fundacja “Dla dzieci"</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji
-                    życiowej.
-                  </div>
-                </span>
-              </label>
-            </div>
 
             <div class="form-group form-group--buttons">
               <button type="button" class="btn prev-step">Wstecz</button>
@@ -121,7 +89,7 @@
             </div>
           </div>
 
-          <!-- STEP 5 -->
+          <!-- STEP 4 -->
           <div data-step="4">
             <h3>Podaj adres oraz termin odbioru rzecz przez kuriera:</h3>
 
@@ -129,40 +97,40 @@
               <div class="form-section--column">
                 <h4>Adres odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Ulica <input type="text" name="address" /> </label>
+                  <label> Ulica <input type="text" name="street" th:field="*{street}"/> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
-                  <label> Miasto <input type="text" name="city" /> </label>
-                </div>
-
-                <div class="form-group form-group--inline">
-                  <label>
-                    Kod pocztowy <input type="text" name="postcode" />
-                  </label>
+                  <label> Miasto <input type="text" name="city" th:field="*{city}"/> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>
-                    Numer telefonu <input type="phone" name="phone" />
+                    Kod pocztowy <input type="text" name="zipCode" th:field="*{zipCode}"/>
                   </label>
                 </div>
+
+<!--                <div class="form-group form-group&#45;&#45;inline">-->
+<!--                  <label>-->
+<!--                    Numer telefonu <input type="phone" name="phone"/>-->
+<!--                  </label>-->
+<!--                </div>-->
               </div>
 
               <div class="form-section--column">
                 <h4>Termin odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Data <input type="date" name="data" /> </label>
+                  <label> Data <input type="date" name="pickUpDate" th:field="*{pickUpDate}"/> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
-                  <label> Godzina <input type="time" name="time" /> </label>
+                  <label> Godzina <input type="time" name="pickUpTime" th:field="*{pickUpTime}"/> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>
                     Uwagi dla kuriera
-                    <textarea name="more_info" rows="5"></textarea>
+                    <textarea name="pickUpComment" rows="5" th:field="*{pickUpComment}"></textarea>
                   </label>
                 </div>
               </div>
@@ -173,7 +141,7 @@
             </div>
           </div>
 
-          <!-- STEP 6 -->
+          <!-- STEP 5 -->
           <div data-step="5">
             <h3>Podsumowanie Twojej darowizny</h3>
 
