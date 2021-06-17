@@ -8,7 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "donations")
@@ -21,8 +21,13 @@ public class Donation {
 
     private Integer quantity;
 
-    @ManyToMany
-    private List<Category> categories;
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable(
+            name = "donations_categories",
+            joinColumns = @JoinColumn(name = "donations_id"),
+            inverseJoinColumns = @JoinColumn(name = "categories_id")
+    )
+    private Set<Category> categories;
 
     @ManyToOne
     private Institution institution;

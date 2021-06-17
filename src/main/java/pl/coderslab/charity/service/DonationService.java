@@ -10,9 +10,11 @@ import java.util.List;
 public class DonationService {
 
     private final DonationRepository donationRepository;
+    private final CategoryService categoryService;
 
-    public DonationService(DonationRepository donationRepository) {
+    public DonationService(DonationRepository donationRepository, CategoryService categoryService) {
         this.donationRepository = donationRepository;
+        this.categoryService = categoryService;
     }
 
     public List<Donation> getAll() {
@@ -28,6 +30,11 @@ public class DonationService {
     }
 
     public void add(Donation donation) {
+//        for (String categoryId : categoryIds.split(",")) {
+//            if (categoryId != null || !categoryId.equals("")) {
+//                donation.setCategories(categoryId);
+//            }
+
         donationRepository.save(donation);
     }
 }

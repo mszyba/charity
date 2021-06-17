@@ -36,7 +36,7 @@
 \
               <div class="form-group form-group--checkbox" th:each="c : ${categories}">
                 <label>
-                  <input type="checkbox" th:value="${c.id}" th:attr="name='categorieId'" />
+                  <input type="checkbox" th:field="*{categories}" th:value="${c.id}" name="categories" />
                   <span class="checkbox"></span>
                   <span class="description" th:text="${c.name}"></span>
                 </label>
