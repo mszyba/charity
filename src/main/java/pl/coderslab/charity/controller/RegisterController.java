@@ -26,6 +26,6 @@ public class RegisterController {
         if (user.getPassword().equals(rePassword)) {
             userService.add(user);
         }
-        return "redirect:/";
+        return "redirect:/login";
     }
 }
