@@ -24,7 +24,7 @@ public class RegisterController {
     @PostMapping("/register")
     public String postRegister(@ModelAttribute User user, @RequestParam String rePassword) {
         if (user.getPassword().equals(rePassword)) {
-            userService.add(user);
+            userService.addWithDefaultRole(user);
         }
         return "redirect:/login";
     }

@@ -1,3 +1,5 @@
+insert into user_role(role, description) VALUES ("ROLE_USER", "default role for user");
+
 INSERT INTO institutions (description, name) VALUES ('desc1', 'Fundacja 1');
 INSERT INTO institutions (description, name) VALUES ('desc2', 'Fundacja 2');
 INSERT INTO institutions (description, name) VALUES ('desc3', 'Fundacja 3');
