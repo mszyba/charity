@@ -17,4 +17,9 @@ public class AdminController {
     public String adminLoginForm() {
         return "/admin/admin-login";
     }
+
+    @GetMapping("/admin/home")
+    public String adminHome() {
+        return "/admin/admin-home";
+    }
 }
