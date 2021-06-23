@@ -1,5 +1,11 @@
-insert into user_role(role, description) VALUES ('ROLE_USER', 'default role for user');
+INSERT INTO user_role(role, description) VALUES ('ROLE_USER', 'default role for user');
+INSERT INTO user_role(role, description) VALUES ('ROLE_ADMIN', 'default role for admin');
+
+INSERT INTO users_roles(user_id, roles_id) VALUES (1, 1);
+INSERT INTO users_roles(user_id, roles_id) VALUES (2, 2);
+
 INSERT INTO users (id, email, first_name, last_name, password) VALUES (1, 't@t.pl', 'testName', 'test', '{bcrypt}$2a$10$MRph5r69JD.PassKa75P7.a6GyVmZjl03DaNc5g2Dd6yaj8dCT3tG');
+INSERT INTO users (id, email, first_name, last_name, password) VALUES (2, 'a@a.pl', 'aName', 'atest', '{bcrypt}$2a$10$MRph5r69JD.PassKa75P7.a6GyVmZjl03DaNc5g2Dd6yaj8dCT3tG');
 
 INSERT INTO institutions (description, name) VALUES ('desc1', 'Fundacja 1');
 INSERT INTO institutions (description, name) VALUES ('desc2', 'Fundacja 2');
