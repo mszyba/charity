@@ -13,14 +13,17 @@ public class AdminSecurityConfig  extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .antMatcher("/admin/**")
-            .authorizeRequests().anyRequest().authenticated()
-                .and().formLogin()
-                    .loginPage("/admin/login")
-                    .defaultSuccessUrl("/admin/home", true)
-                .permitAll()
-                .and().logout()
-                    .logoutUrl("/admin/logout")
-                    .logoutSuccessUrl("/admin/login")
-                    .permitAll();
+            .authorizeRequests()
+            .anyRequest().authenticated()
+            .and()
+        .formLogin()
+            .loginPage("/admin/login")
+            .defaultSuccessUrl("/admin/home", true)
+            .permitAll()
+            .and()
+        .logout()
+            .logoutUrl("/admin/logout")
+            .logoutSuccessUrl("/admin/login")
+            .permitAll();
     }
 }
