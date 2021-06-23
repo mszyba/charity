@@ -22,4 +22,5 @@ public class AdminController {
     public String adminHome() {
         return "/admin/admin-home";
     }
+
 }
