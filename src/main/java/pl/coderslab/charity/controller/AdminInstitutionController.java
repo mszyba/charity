@@ -47,4 +47,10 @@ public class AdminInstitutionController {
         model.addAttribute("institution", institutionService.getInstitutionById(id));
         return "/admin/institution-add";
     }
+
+    @GetMapping("/admin/institution/delete/{id}")
+    public String deleteInstitutionById(@PathVariable Long id) {
+        institutionService.deleteById(id);
+        return "redirect:/admin/institution/list";
+    }
 }

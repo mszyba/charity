@@ -32,6 +32,7 @@
                 <th>Nazwa Fundacji</th>
                 <th>Opis</th>
                 <th width="5%"></th>
+                <th width="5%"></th>
               </tr>
               </thead>
               <tfoot>
@@ -39,6 +40,7 @@
                 <th>ID</th>
                 <th>Nazwa Fundacji</th>
                 <th>Opis</th>
+                <th></th>
                 <th></th>
               </tr>
               </tfoot>
@@ -48,19 +50,19 @@
                 <td th:text="${institution.name}">/td>
                 <td th:text="${institution.description}">/td>
                 <td><a th:href="@{/admin/institution/edit/{id}(id=${institution.id})}" class="btn btn-outline-info btn-sm">Edytuj</a></td>
+                <td>
+                  <a th:href="@{/admin/institution/delete/{id}(id=${institution.id})}" class="btn btn-outline-danger btn-sm">Usuń</a>
+                </td>
               </tr>
               </tbody>
             </table>
           </div>
         </div>
-
       </div>
     </main>
     <div th:replace="/admin/admin-parts :: footer"></div>
   </div>
 </div>
-
 <script th:replace="/admin/admin-parts :: script"></script>
-
 </body>
 </html>

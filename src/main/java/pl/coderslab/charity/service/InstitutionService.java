@@ -33,4 +33,8 @@ public class InstitutionService {
             throw new EntityNotFoundException();
         }
     }
+
+    public void deleteById(Long id) {
+        this.institutionRepository.deleteById(id);
+    }
 }
