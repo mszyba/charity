@@ -18,11 +18,12 @@
         <h1 class="mt-4">Fundacja</h1>
         <div class="card mb-4">
           <div class="card-header">
-            <i class="fas fa-table me-1"></i>
-            Dodaj Fundację
+            <h5 th:if="${institution.id == null}">Dodaj Fundację</h5>
+            <h5 th:unless="${institution.id == null}">Edytuj Fundację</h5>
           </div>
           <div class="card-body">
             <form method="post" th:action="@{/admin/institution/add}" th:object="${institution}">
+              <input type="hidden" th:field="*{id}" th:value="*{id}">
               <div class="form-floating mb-3">
                 <input class="form-control" id="nameInstitution" type="text" th:field="*{name}" placeholder="" th:errorclass="is-invalid" required/>
                 <label for="nameInstitution">Nazwa Fundacji</label>

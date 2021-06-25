@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.service.InstitutionService;
@@ -41,4 +42,9 @@ public class AdminInstitutionController {
         return "redirect:/admin/institution/list";
     }
 
+    @GetMapping("/admin/institution/edit/{id}")
+    public String editInstitutionById(@PathVariable Long id, Model model) {
+        model.addAttribute("institution", institutionService.getInstitutionById(id));
+        return "/admin/institution-add";
+    }
 }
