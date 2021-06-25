@@ -18,4 +18,8 @@ public class InstitutionService {
     public List<Institution> getAll() {
         return institutionRepository.findAll();
     }
+
+    public void add(Institution institution) {
+        institutionRepository.save(institution);
+    }
 }

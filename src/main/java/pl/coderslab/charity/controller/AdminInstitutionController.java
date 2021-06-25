@@ -3,6 +3,9 @@ package pl.coderslab.charity.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.service.InstitutionService;
 
 @Controller
@@ -19,4 +22,18 @@ public class AdminInstitutionController {
         model.addAttribute("institutions", institutionService.getAll());
         return "/admin/institution-all";
     }
+
+    @GetMapping("/admin/institution/add")
+    public String getAddInstitution(Model model) {
+        model.addAttribute("institution", new Institution());
+        return "/admin/institution-add";
+    }
+
+    @PostMapping("/admin/institution/add")
+    public String postAddInstitution(@ModelAttribute Institution institution, Model model) {
+        model.addAttribute("institution", institution);
+        institutionService.add(institution);
+        return "redirect:/admin/institution/list";
+    }
+
 }
