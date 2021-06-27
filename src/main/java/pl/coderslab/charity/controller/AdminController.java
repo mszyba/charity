@@ -1,6 +1,7 @@
 package pl.coderslab.charity.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.coderslab.charity.service.UserService;
 
@@ -23,4 +24,9 @@ public class AdminController {
         return "/admin/admin-home";
     }
 
+    @GetMapping("/admin/list")
+    public String getAllAdmin(Model model) {
+        model.addAttribute("admins", userService.getAllAdmin());
+        return "/admin/admin-list";
+    }
 }
