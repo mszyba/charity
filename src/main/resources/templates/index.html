@@ -73,8 +73,8 @@
           <li>
             <th:block th:if="${institutions.size() >= 1}" th:each="i: ${#numbers.sequence(0, 1)}">
              <div class="col">
-              <div class="title" th:text="${institutions.get(i).name}" >ggggggggggg</div>
-              <div class="subtitle" th:text="${institutions.get(i).description}" >gggggggggggggggggggg</div>
+              <div class="title" th:text="${institutions.get(i).name}" ></div>
+              <div class="subtitle" th:text="${institutions.get(i).description}" ></div>
              </div>
             </th:block>
           </li>
@@ -82,8 +82,8 @@
           <li>
             <th:block th:if="${institutions.size() > 3}"  th:each="i: ${#numbers.sequence(2, 3)}">
               <div class="col">
-                <div class="title" th:text="${institutions.get(i).name}" >ggggggggggg</div>
-                <div class="subtitle" th:text="${institutions.get(i).description}" >gggggggggggggggggggg</div>
+                <div class="title" th:text="${institutions.get(i).name}" ></div>
+                <div class="subtitle" th:text="${institutions.get(i).description}" ></div>
               </div>
             </th:block>
           </li>
