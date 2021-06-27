@@ -7,7 +7,9 @@ import pl.coderslab.charity.model.UserRole;
 import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.repository.UserRoleRepository;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserService {
@@ -37,5 +39,14 @@ public class UserService {
 
     public List<User> getAllAdmin() {
         return userRepository.findAllAdmins();
+    }
+
+    public void addAdmin(User user) {
+        Set<UserRole> roles = new HashSet<>();
+        roles.add(userRoleRepository.findByRole("ROLE_ADMIN"));
+        user.setRoles(roles);
+        String passwordHash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(passwordHash);
+        userRepository.save(user);
     }
 }
