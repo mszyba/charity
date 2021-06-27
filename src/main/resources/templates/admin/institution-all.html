@@ -51,7 +51,9 @@
                 <td th:text="${institution.description}">/td>
                 <td><a th:href="@{/admin/institution/edit/{id}(id=${institution.id})}" class="btn btn-outline-info btn-sm">Edytuj</a></td>
                 <td>
-                  <a th:href="@{/admin/institution/delete/{id}(id=${institution.id})}" class="btn btn-outline-danger btn-sm">Usuń</a>
+                  <a th:href="@{/admin/institution/delete/{id}(id=${institution.id})}"
+                     onclick="return confirm('Czy na pewno chcesz usunać rekord?');"
+                     class="btn btn-outline-danger btn-sm">Usuń</a>
                 </td>
               </tr>
               </tbody>
