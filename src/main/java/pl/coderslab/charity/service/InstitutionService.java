@@ -37,4 +37,12 @@ public class InstitutionService {
     public void deleteById(Long id) {
         this.institutionRepository.deleteById(id);
     }
+
+    /**
+     * @param id Institution
+     * @return true if Institution has any Donation
+     */
+    public boolean isExistInstitution(Long id) {
+        return institutionRepository.existsInstitutionByIdIfHaveDonations(id);
+    }
 }

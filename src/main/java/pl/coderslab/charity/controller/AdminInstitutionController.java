@@ -50,7 +50,13 @@ public class AdminInstitutionController {
 
     @GetMapping("/admin/institution/delete/{id}")
     public String deleteInstitutionById(@PathVariable Long id) {
-        institutionService.deleteById(id);
-        return "redirect:/admin/institution/list";
+        boolean existInstitution = institutionService.isExistInstitution(id);
+
+        if (existInstitution) {
+            return "/admin/institution-delete-error";
+        } else {
+            institutionService.deleteById(id);
+            return "redirect:/admin/institution/list";
+        }
     }
 }
