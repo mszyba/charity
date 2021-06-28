@@ -37,7 +37,7 @@ public class AdminController {
 
     @GetMapping("/admin/add")
     public String getAddAdmin(Model model) {
-        model.addAttribute("admin", new User());
+        model.addAttribute("user", new User());
         return "/admin/admin-add";
     }
 
@@ -46,7 +46,7 @@ public class AdminController {
         if (result.hasErrors()) {
             return "/admin/admin-add";
         }
-        model.addAttribute("admin", user);
+        model.addAttribute("user", user);
         userService.addAdmin(user);
         return "redirect:/admin/list";
     }
