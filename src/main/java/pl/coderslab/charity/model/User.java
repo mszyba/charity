@@ -3,6 +3,7 @@ package pl.coderslab.charity.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 @Getter @Setter @NoArgsConstructor
+@ToString(exclude = {"password"})
 public class User {
 
     @Id
