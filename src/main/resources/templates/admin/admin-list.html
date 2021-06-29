@@ -54,7 +54,7 @@
                 <td th:text="${admin.email}">/td>
                 <td><a th:href="@{/admin/edit/{id}(id=${admin.id})}" class="btn btn-outline-info btn-sm">Edytuj</a></td>
                 <td>
-                  <a th:href="@{/admin/institution/delete/{id}(id=${admin.id})}"
+                  <a th:href="@{/admin/delete/{id}(id=${admin.id})}"
                      onclick="return confirm('Czy na pewno chcesz usunać rekord?');"
                      class="btn btn-outline-danger btn-sm">Usuń</a>
                 </td>

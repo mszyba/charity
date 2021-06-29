@@ -70,4 +70,8 @@ public class UserService {
 
         this.userRepository.updateAdmin(firstName, lastName, password, email, userId);
     }
+
+    public void softDeleteAdmin(Long id) {
+        this.userRepository.softDelete(id);
+    }
 }

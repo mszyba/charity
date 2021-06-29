@@ -16,7 +16,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByEmail(String email);
 
-    @Query(value = "select * from users u join users_roles ur on u.id = ur.user_id join user_role r on r.id = ur.roles_id where r.role='ROLE_ADMIN'", nativeQuery = true)
+    @Query(value = "select * from users u join users_roles ur on u.id = ur.user_id join user_role r on r.id = ur.roles_id where r.role='ROLE_ADMIN' AND is_active=true", nativeQuery = true)
     List<User> findAllAdmins();
 
     @Query(value = "select * from users u join users_roles ur on u.id = ur.user_id join user_role r on r.id = ur.roles_id where r.role='ROLE_ADMIN' AND u.id=(:id)", nativeQuery = true)
@@ -30,4 +30,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
                     @Param("password") String password,
                     @Param("email") String email,
                     @Param("id") Long id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE User u SET u.isActive = false WHERE u.id=?1")
+    void softDelete(Long id);
 }

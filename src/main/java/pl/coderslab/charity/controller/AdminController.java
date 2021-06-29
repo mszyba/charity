@@ -11,6 +11,7 @@ import pl.coderslab.charity.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 public class AdminController {
@@ -66,5 +67,17 @@ public class AdminController {
         }
         userService.updateAdmin(user);
         return "redirect:/admin/list";
+    }
+
+    @GetMapping("/admin/delete/{id}")
+    public String deleteAdminById(@PathVariable Long id, HttpServletRequest request) {
+        Principal userPrincipal = request.getUserPrincipal();
+
+        if (!userService.getAdminById(id).getEmail().equals(userPrincipal.getName())) {
+            userService.softDeleteAdmin(id);
+            return "redirect:/admin/list";
+        } else {
+            return "/admin/admin-delete-error";
+        }
     }
 }

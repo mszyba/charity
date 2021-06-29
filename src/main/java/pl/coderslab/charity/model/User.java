@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -16,6 +17,7 @@ import java.util.Set;
 @Table(name = "users")
 @Getter @Setter @NoArgsConstructor
 @ToString(exclude = {"password"})
+@Where(clause = "is_active = true")
 public class User {
 
     @Id
@@ -37,4 +39,6 @@ public class User {
 
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<UserRole> roles = new HashSet<>();
+
+    private boolean isActive = true;
 }
