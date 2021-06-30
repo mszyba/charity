@@ -74,4 +74,8 @@ public class UserService {
     public void softDeleteAdmin(Long id) {
         this.userRepository.softDelete(id);
     }
+
+    public List<User> getAllUser() {
+        return userRepository.findAllUser();
+    }
 }

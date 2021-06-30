@@ -35,4 +35,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Transactional
     @Query(value = "UPDATE User u SET u.isActive = false WHERE u.id=?1")
     void softDelete(Long id);
+
+    @Query(value = "select * from users u join users_roles ur on u.id = ur.user_id join user_role r on r.id = ur.roles_id where r.role='ROLE_USER' AND is_active=true", nativeQuery = true)
+    List<User> findAllUser();
 }

@@ -37,6 +37,13 @@ INSERT INTO users_roles(user_id, roles_id) VALUES (11, 2);
 INSERT INTO users_roles(user_id, roles_id) VALUES (12, 2);
 INSERT INTO users_roles(user_id, roles_id) VALUES (13, 2);
 INSERT INTO users_roles(user_id, roles_id) VALUES (14, 2);
+INSERT INTO users_roles(user_id, roles_id) VALUES (15, 1);
+INSERT INTO users_roles(user_id, roles_id) VALUES (16, 1);
+INSERT INTO users_roles(user_id, roles_id) VALUES (17, 1);
+INSERT INTO users_roles(user_id, roles_id) VALUES (18, 1);
+INSERT INTO users_roles(user_id, roles_id) VALUES (19, 1);
+INSERT INTO users_roles(user_id, roles_id) VALUES (20, 1);
+INSERT INTO users_roles(user_id, roles_id) VALUES (21, 1);
 
 INSERT INTO institutions (description, name) VALUES ('desc1', 'Fundacja 1');
 INSERT INTO institutions (description, name) VALUES ('desc2', 'Fundacja 2');
