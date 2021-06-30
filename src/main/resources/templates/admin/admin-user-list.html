@@ -52,9 +52,9 @@
                 <td th:text="${user.firstName}">/td>
                 <td th:text="${user.lastName}">/td>
                 <td th:text="${user.email}">/td>
-                <td><a th:href="@{/admin/edit/{id}(id=${user.id})}" class="btn btn-outline-info btn-sm">Edytuj</a></td>
+                <td><a th:href="@{/admin/user/edit/{id}(id=${user.id})}" class="btn btn-outline-info btn-sm">Edytuj</a></td>
                 <td>
-                  <a th:href="@{/admin/delete/{id}(id=${user.id})}"
+                  <a th:href="@{/admin/user/delete/{id}(id=${user.id})}"
                      onclick="return confirm('Czy na pewno chcesz usunać rekord?');"
                      class="btn btn-outline-danger btn-sm">Usuń</a>
                 </td>
