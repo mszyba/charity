@@ -1,6 +1,7 @@
 package pl.coderslab.charity.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -34,13 +35,18 @@ public class AdminUserController {
 
     @GetMapping("/admin/user/edit/{id}")
     public String getEditUser(@PathVariable Long id, Model model) {
-        model.addAttribute("user", userService.getUserByIdAndRole(id, ROLE_USER));
+        ModelMapper modelMapper = new ModelMapper();
+        UserEditDTO userEditDTO = modelMapper.map(userService.getUserByIdAndRole(id, ROLE_USER), UserEditDTO.class);
+        model.addAttribute("user", userEditDTO);
+
+        log.info(userEditDTO.toString());
         return "/admin/admin-user-edit";
     }
 
     @PostMapping("/admin/user/edit")
     public String postEditUser(@Valid UserEditDTO userEditDTO, BindingResult result) {
         if (result.hasErrors()) {
+            // FIXME
             return "/admin/admin-user-edit";
         }
         userService.updateUser(userEditDTO);
