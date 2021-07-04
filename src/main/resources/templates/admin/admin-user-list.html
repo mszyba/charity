@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="/admin/admin-parts :: headBase">
+  <title id="pageTitle">Charity Donation - Admin Page</title>
+</head>
+<body class="sb-nav-fixed">
+
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+
+  <th:block th:replace="/admin/admin-parts :: navbar"> </th:block>
+
+</nav>
+<div id="layoutSidenav">
+
+  <!--  layoutSidenav_nav-->
+  <div th:replace="/admin/admin-parts :: layoutSidenav_nav"></div>
+
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid px-4">
+        <h1 class="mt-4">Użytkownik</h1>
+        <div class="card mb-4">
+          <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Lista Użytkowników
+          </div>
+          <div class="card-body">
+            <table id="datatablesSimple">
+              <thead>
+              <tr>
+                <th width="5%">ID</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>E-mail</th>
+                <th width="5%"></th>
+                <th width="5%"></th>
+                <th width="5%"></th>
+              </tr>
+              </thead>
+              <tfoot>
+              <tr>
+                <th>ID</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>E-mail</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+              </tfoot>
+              <tbody>
+              <tr th:each="user : ${users}">
+                <td th:text="${user.id}">/td>
+                <td th:text="${user.firstName}">/td>
+                <td th:text="${user.lastName}">/td>
+                <td th:text="${user.email}">/td>
+                <td>
+                <form th:action="@{/admin/user/list}" method="post">
+                  <button type="submit" th:if="${user.isLocked()}" name="unblocked" th:value="${user.id}" th:text="Odblokuj" class="btn btn-outline-secondary btn-sm"></button>
+                  <button type="submit" th:unless="${user.isLocked()}" name="blocked" th:value="${user.id}" th:text="Zablokuj" class="btn btn-outline-warning btn-sm"></button>
+                </form>
+                </td>
+                <td><a th:href="@{/admin/user/edit/{id}(id=${user.id})}" class="btn btn-outline-info btn-sm">Edytuj</a></td>
+                <td>
+                  <a th:href="@{/admin/user/delete/{id}(id=${user.id})}"
+                     onclick="return confirm('Czy na pewno chcesz usunać rekord?');"
+                     class="btn btn-outline-danger btn-sm">Usuń</a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div th:replace="/admin/admin-parts :: footer"></div>
+  </div>
+</div>
+<script th:replace="/admin/admin-parts :: script"></script>
+</body>
+</html>

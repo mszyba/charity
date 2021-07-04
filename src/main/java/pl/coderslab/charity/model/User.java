@@ -41,4 +41,5 @@ public class User {
     private Set<UserRole> roles = new HashSet<>();
 
     private boolean isActive = true;
+    private boolean isLocked = false;
 }
