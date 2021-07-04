@@ -107,4 +107,12 @@ public class UserService {
             userRepository.save(user);
         }
     }
+
+    public void lockedUser(Long id) {
+        this.userRepository.lockedUser(id);
+    }
+
+    public void unlockedUser(Long id) {
+        this.userRepository.unlockedUser(id);
+    }
 }

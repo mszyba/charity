@@ -34,6 +34,7 @@
                 <th>E-mail</th>
                 <th width="5%"></th>
                 <th width="5%"></th>
+                <th width="5%"></th>
               </tr>
               </thead>
               <tfoot>
@@ -44,6 +45,7 @@
                 <th>E-mail</th>
                 <th></th>
                 <th></th>
+                <th></th>
               </tr>
               </tfoot>
               <tbody>
@@ -52,6 +54,12 @@
                 <td th:text="${user.firstName}">/td>
                 <td th:text="${user.lastName}">/td>
                 <td th:text="${user.email}">/td>
+                <td>
+                <form th:action="@{/admin/user/list}" method="post">
+                  <button type="submit" th:if="${user.isLocked()}" name="unblocked" th:value="${user.id}" th:text="Odblokuj" class="btn btn-outline-secondary btn-sm"></button>
+                  <button type="submit" th:unless="${user.isLocked()}" name="blocked" th:value="${user.id}" th:text="Zablokuj" class="btn btn-outline-warning btn-sm"></button>
+                </form>
+                </td>
                 <td><a th:href="@{/admin/user/edit/{id}(id=${user.id})}" class="btn btn-outline-info btn-sm">Edytuj</a></td>
                 <td>
                   <a th:href="@{/admin/user/delete/{id}(id=${user.id})}"
